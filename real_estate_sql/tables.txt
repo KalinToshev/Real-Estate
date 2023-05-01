@@ -1,0 +1,73 @@
+===
+DB NAME: real_estate
+===
+
+===
+users table
+===
+CREATE TABLE `users` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`email` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`phone_number` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`password` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`role` VARCHAR(255) NOT NULL DEFAULT 'user' COLLATE 'utf8mb4_general_ci',
+	PRIMARY KEY (`id`) USING BTREE,
+	UNIQUE INDEX `email` (`email`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;
+
+===
+properties table
+===
+CREATE TABLE `properties` (
+	`pid` INT(50) NOT NULL AUTO_INCREMENT,
+	`pname` VARCHAR(200) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`pdescription` LONGTEXT NOT NULL COLLATE 'utf8mb4_general_ci',
+	`ptype` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`bedroom` INT(50) NOT NULL,
+	`bathroom` INT(50) NOT NULL,
+	`balcony` INT(50) NOT NULL,
+	`kitchen` INT(50) NOT NULL,
+	`hall` INT(50) NOT NULL,
+	`floor` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`size` INT(50) NOT NULL,
+	`price` INT(50) NOT NULL,
+	`location` VARCHAR(200) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`city` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`region` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`features` LONGTEXT NOT NULL COLLATE 'utf8mb4_general_ci',
+	`pimages` VARCHAR(300) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`status` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`uid` INT(50) NOT NULL,
+	`totalfloor` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`date` DATETIME NOT NULL DEFAULT current_timestamp(),
+	`isFeatured` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	PRIMARY KEY (`pid`) USING BTREE
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;
+
+===
+messages table
+===
+CREATE TABLE `messages` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_estonian_ci',
+	`email` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_estonian_ci',
+	`phone` VARCHAR(10) NOT NULL COLLATE 'utf8mb4_estonian_ci',
+	`subject` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_estonian_ci',
+	`message` TEXT NOT NULL COLLATE 'utf8mb4_estonian_ci',
+	`created_at` TIMESTAMP NOT NULL DEFAULT current_timestamp(),
+	PRIMARY KEY (`id`) USING BTREE
+)
+COLLATE='utf8mb4_estonian_ci'
+ENGINE=InnoDB
+;
+
+===
+AUTHOR MESSAGE: There will be need of some php code update so you can connect to the db as right way. The port i use is 3307. You can see everything in the code. I tried to make it as much as understandable for a first PHP project. Have fun looking at it.
+===
